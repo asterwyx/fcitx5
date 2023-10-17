@@ -33,6 +33,7 @@ WaylandIMModule::WaylandIMModule(Instance *instance) : instance_(instance) {
         wayland()->call<IWaylandModule::addConnectionCreatedCallback>(
             [this](const std::string &name, wl_display *display,
                    FocusGroup *group) {
+                WAYLANDIM_INFO() << "waylandim module is created.";
                 displays_[name] = display;
                 appMonitor(name);
                 WaylandIMServer *server =
@@ -98,6 +99,7 @@ AggregatedAppMonitor *WaylandIMModule::appMonitor(const std::string &display) {
 class WaylandIMModuleFactory : public AddonFactory {
 public:
     AddonInstance *create(AddonManager *manager) override {
+        WAYLANDIM_INFO() << "create for manager " << manager << " is invoked.";
         return new WaylandIMModule(manager->instance());
     }
 };

@@ -72,5 +72,6 @@ private:
 FCITX_DECLARE_LOG_CATEGORY(waylandim);
 
 #define WAYLANDIM_DEBUG() FCITX_LOGC(::waylandim, Debug)
+#define WAYLANDIM_INFO() FCITX_LOGC(::waylandim, Info)
 
 #endif // _FCITX_FRONTEND_WAYLANDIM_WAYLANDIM_H_
